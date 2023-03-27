@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">BloodBank2_0-Main</string>
+
+    <string name="home_fragment">Home fragment</string>
+    <string name="bank_fragment">Bank fragment</string>
+    <string name="profile_fragment">Profile fragment</string>
+
+    <string name="donors_fragment">Donors fragment</string>
+    <string name="recipients_fragment">Recipients fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="donors">Donors</string>
+    <string name="receipients">Receipients</string>
+    <string name="blood_bank">Blood Bank</string>
+    <string name="person_name">Person Name</string>
+    <string name="person_location">Person Location</string>
+    <string name="person_blood_type">Person Blood Type</string>
+    <string name="person_gender">Person Gender</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="location">Location</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+</resources>
