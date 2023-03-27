@@ -23,4 +23,8 @@
     <string name="location">Location</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
+
+
+    <string name="make_a_request">Make a Blood Request</string>
+    <string name="make_a_donation">Make a Donation</string>
 </resources>
