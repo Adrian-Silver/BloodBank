@@ -53,5 +53,5 @@ class SignupActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-    }    }
+    }
 }
