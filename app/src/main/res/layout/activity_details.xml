@@ -57,6 +57,7 @@
         app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameEt"
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:inputType="textPersonName"
@@ -92,6 +93,7 @@
         app:startIconDrawable="@drawable/ic_age">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ageEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -124,6 +126,7 @@
         app:startIconDrawable="@drawable/ic_gender">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/genderEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -157,6 +160,7 @@
         app:startIconTint="@color/yellow">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneNoEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -225,6 +229,7 @@
         app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/locationEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
