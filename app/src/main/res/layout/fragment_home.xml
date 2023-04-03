@@ -13,6 +13,7 @@
         android:layout_gravity="center"
         android:weightSum="2" >
         <Button
+            android:id="@+id/requestBLoodButton"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
@@ -22,6 +23,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/donateBloodButton"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
