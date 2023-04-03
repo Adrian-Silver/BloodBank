@@ -45,13 +45,25 @@ class SignupActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Field cannot be blank !!!", Toast.LENGTH_SHORT).show()
             }
+
+
+
         }
 
 
         binding.textView.setOnClickListener{
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, DetailsActivity::class.java)
             startActivity(intent)
         }
-
     }
+
+//    override fun onStart() {
+//        super.onStart()
+//
+//        if (firebaseAuth.currentUser != null) {
+//            val intent = Intent(this, DetailsActivity::class.java)
+//            startActivity(intent)
+//        }
+//
+//    }
 }
