@@ -4,6 +4,12 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+// loading api keys
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+
 android {
     namespace 'com.example.bloodbank2_0_main'
     compileSdk 33
@@ -16,12 +22,26 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // should correspond to key/value pairs inside the file
+        buildConfigField("String", "DARAJA_CONSUMER_KEY", apikeyProperties['DARAJA_CONSUMER_KEY'])
+        buildConfigField("String", "DARAJA_CONSUMER_SECRET", apikeyProperties['DARAJA_CONSUMER_SECRET'])
+
     }
 
     buildTypes {
+
+        debug {
+            // ...
+            buildConfigField "String", "API_KEY", "\"your_api_key_here\""
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "API_KEY", "\"your_api_key_here\""
+
         }
     }
 
@@ -51,9 +71,32 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // Daraja API
-    implementation 'com.androidstudy.daraja:daraja:2.0.2'
+//    implementation 'com.androidstudy.daraja:daraja:2.0.2'
 
     // Firebase BoM
     implementation 'com.google.firebase:firebase-bom:31.3.0'
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
+    //m-pesa, retrofit, okHttp, gson
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
+
+    implementation 'cn.pedant.sweetalert:library:1.3'
+
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.squareup.okio:okio:3.0.0'
+
 
 }

@@ -4,10 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.bloodbank2_0_main.databinding.ActivityDetailsBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import timber.log.Timber
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -64,6 +68,32 @@ class DetailsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val spinner = binding.spinnerBloodType
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.blood_types,
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object :
+            android.widget.AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: android.widget.AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                Timber.d("Selected item is $selectedItem")
+            }
+
+            override fun onNothingSelected(parent: android.widget.AdapterView<*>) {
+                Toast.makeText(this@DetailsActivity, "Please Select Blood Group", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
     }
 
@@ -73,6 +103,8 @@ class DetailsActivity : AppCompatActivity() {
         val gender = binding.genderEt.text.toString()
         val phoneNO = binding.phoneNoEt.text.toString()
         val location = binding.locationEt.text.toString()
+
+        val bloodGroup = binding.spinnerBloodType.selectedItem.toString()
 //        val bloodGroup = binding.spinnerBloodType.selectedItem.toString()
 //        binding.spinnerBloodType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 //            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -92,8 +124,10 @@ class DetailsActivity : AppCompatActivity() {
             "phoneNumber" to phoneNO,
             "gender" to gender,
             "location" to location,
-            // "bloodGroup" to bloodGroup
+             "bloodGroup" to bloodGroup
         )
+
+
 
         val email = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser?.email
         val db = com.google.firebase.firestore.FirebaseFirestore.getInstance()

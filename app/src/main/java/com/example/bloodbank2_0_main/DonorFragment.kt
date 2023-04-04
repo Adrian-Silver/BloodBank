@@ -139,7 +139,8 @@ class DonorAdapter(private val donors: MutableList<Donor>) :
 
         fun bind(donor: Donor) {
             binding.tvPersonName.text = donor.name
-            binding.tvBloodType.text = donor.contact
+//            binding.tvBloodType.text = donor.contact
+            binding.tvContact.text = donor.contact
             binding.tvPersonLocation.text = donor.location
         }
     }
