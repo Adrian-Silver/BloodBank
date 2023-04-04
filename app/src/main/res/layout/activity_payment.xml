@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:text="Enter your phone number buy a Soda"
+            android:text="Enter your phone number to buy a Soda"
             android:textColor="#949aa6"
             android:textSize="18sp" />
 
