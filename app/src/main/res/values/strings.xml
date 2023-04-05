@@ -29,6 +29,7 @@
     <string name="make_a_request">Make a Blood Request</string>
     <string name="make_a_donation">Make a Donation</string>
     <string name="call_donor">Call Donor</string>
+    <string name="payment">payment</string>
 
     <string-array name="blood_types">
         <item>A+</item>
