@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_settings"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/settings"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_location"
         android:icon="@drawable/ic_location"
         android:title="@string/location"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_payment"
+        android:icon="@drawable/ic_payment"
+        android:title="@string/payment"
         app:showAsAction="ifRoom" />
 
 
