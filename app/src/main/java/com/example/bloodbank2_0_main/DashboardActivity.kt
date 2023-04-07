@@ -100,8 +100,8 @@ class DashboardActivity : AppCompatActivity() {
         // Handle item selection
 
         return when (item.itemId) {
-            R.id.action_settings -> {
-                val intent = Intent(this, SettingsActivity::class.java)
+            R.id.action_location -> {
+                val intent = Intent(this, LocationActivity::class.java)
                 startActivity(intent)
                 true
             }

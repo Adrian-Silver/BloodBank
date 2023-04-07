@@ -3,6 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="${MAPS_API_KEY}" />
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
 
     <application
         android:allowBackup="true"
@@ -14,11 +24,12 @@
         android:theme="@style/Theme.MaterialComponents.NoActionBar"
         tools:replace="android:icon"
         tools:targetApi="31">
-
+        <activity
+            android:name=".LocationActivity"
+            android:exported="false" />
         <activity
             android:name=".mpesa.MpesaActivity2"
             android:exported="true" />
-
         <activity
             android:name=".DetailsActivity"
             android:exported="false" />

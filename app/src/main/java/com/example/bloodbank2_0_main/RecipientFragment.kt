@@ -1,6 +1,6 @@
 package com.example.bloodbank2_0_main
 
-import android.os.Binder
+//import android.os.Binder
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
@@ -56,9 +56,10 @@ class RecipientFragment : Fragment() {
                 for (document in documents) {
                     val name = document.getString("name")
                     val contact = document.getString("contact")
+                    val bloodType = document.getString("bloodGroup")
                     val location = document.getString("location")
-                    if (name != null && contact != null && location != null) {
-                        val patient = Patient(name, contact, location)
+                    if (name != null && contact != null && bloodType != null && location != null) {
+                        val patient = Patient(name, contact, bloodType, location)
                         patients.add(patient)
                     }
                 }
@@ -81,9 +82,11 @@ class RecipientFragment : Fragment() {
 data class Patient( // modified
     val name: String? = "",
     val contact: String? = "",
+    val bloodType: String? = "", //
     val location: String? = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
@@ -97,6 +100,7 @@ data class Patient( // modified
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
         parcel.writeString(contact)
+        parcel.writeString(bloodType)
         parcel.writeString(location)
     }
 
@@ -124,7 +128,8 @@ class PatientAdapter(private val patients: MutableList<Patient>) : // modified
 
         fun bind(patient: Patient) { // modified
             binding.tvPersonName.text = patient.name
-            binding.tvBloodType.text = patient.contact
+            binding.tvDonorContact.text = patient.contact
+            binding.tvBloodType.text = patient.bloodType
             binding.tvPersonLocation.text = patient.location
         }
     }

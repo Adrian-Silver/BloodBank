@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
 }
 
 // loading api keys
@@ -97,6 +99,14 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.okio:okio:3.0.0'
+
+    // Location
+
+    // Fused Location Provider for Android (includes activity recognition and geofencing)
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    // Google Maps SDK for Android
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
 
 }

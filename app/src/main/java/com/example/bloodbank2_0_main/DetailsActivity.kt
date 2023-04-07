@@ -1,29 +1,48 @@
 package com.example.bloodbank2_0_main
 
+//import android.Manifest
+//import android.annotation.SuppressLint
+//import android.content.Context
 import android.content.Intent
+//import android.content.pm.PackageManager
+//import android.location.Address
+//import android.location.Geocoder
+//import android.location.Location
+//import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+//import android.provider.Settings
+//import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
+//import androidx.core.app.ActivityCompat
+//import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.bloodbank2_0_main.databinding.ActivityDetailsBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+//import com.google.android.gms.location.FusedLocationProviderClient
+//import com.google.firebase.database.DatabaseReference
+//import com.google.firebase.database.FirebaseDatabase
 import timber.log.Timber
+//import java.util.*
+import kotlin.collections.HashMap
 
 class DetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailsBinding
 
-    private lateinit var databaseReference: DatabaseReference
+//    private lateinit var fusedLocationClient : FusedLocationProviderClient
+
+//    private lateinit var locationUtils: LocationUtils
+
+//    private lateinit var databaseReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        locationUtils = LocationUtils(this)
 
 
 
@@ -101,7 +120,7 @@ class DetailsActivity : AppCompatActivity() {
         val name = binding.nameEt.text.toString()
         val age = binding.ageEt.text.toString()
         val gender = binding.genderEt.text.toString()
-        val phoneNO = binding.phoneNoEt.text.toString()
+        val contact = binding.phoneNoEt.text.toString()
         val location = binding.locationEt.text.toString()
 
         val bloodGroup = binding.spinnerBloodType.selectedItem.toString()
@@ -121,10 +140,10 @@ class DetailsActivity : AppCompatActivity() {
         val user: HashMap<kotlin.String, kotlin.Any> = kotlin.collections.hashMapOf(
             "name" to name,
             "age" to age,
-            "phoneNumber" to phoneNO,
+            "contact" to contact,
             "gender" to gender,
             "location" to location,
-             "bloodGroup" to bloodGroup
+            "bloodGroup" to bloodGroup
         )
 
 
@@ -144,6 +163,25 @@ class DetailsActivity : AppCompatActivity() {
                 }
         }
     }
+
+//    private fun getCityNameWithLocation(lat: Double, long: Double) {
+//        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+//        val addresses: MutableList<Address>? = geocoder.getFromLocation(lat, long, 1)
+//        if (addresses != null) {
+//            if(addresses.isNotEmpty()) {
+//                val cityName: String = (addresses?.get(0)?.getAddressLine(0) ?: Timber.d("cityName: $cityName")) as String
+//            }
+//        }
+//    }
+
+//    private fun getCityNameWithLocation(lat: Double, long: Double) {
+//        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+//        val addresses: List<Address> = geocoder.getFromLocation(lat, long, 1)
+//        if(addresses.isNotEmpty()) {
+//            val cityName: String = addresses[0].getAddressLine(0)
+//            Timber.d("cityName: $cityName")
+//        }
+//    }
 
 
 

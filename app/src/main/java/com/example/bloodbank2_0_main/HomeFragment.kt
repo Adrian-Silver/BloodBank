@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
                     if (documentSnapshot.exists()) {
                         val data = documentSnapshot.data
                         data?.let {
-                            postDonorData(requireContext(), it["name"].toString(), it["contact"].toString(), it["location"].toString())
+                            postDonorData(requireContext(), it["name"].toString(), it["contact"].toString(), it["bloodGroup"].toString(), it["location"].toString())
                         } ?: run {
                             Toast.makeText(requireContext(), "User data is null", Toast.LENGTH_SHORT).show()
                         }
@@ -72,10 +72,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun postDonorData(
-        context: Context, name: String, contact: String, location: String) {
+        context: Context, name: String, contact: String, bloodGroup: String, location: String) {
         val donorData = hashMapOf(
             "name" to name,
             "contact" to contact,
+            "bloodGroup" to bloodGroup,
             "location" to location
         )
 
@@ -97,7 +98,7 @@ class HomeFragment : Fragment() {
                     if (documentSnapshot.exists()) {
                         val data = documentSnapshot.data
                         data?.let {
-                            postPatientData(requireContext(), it["name"].toString(), it["contact"].toString(), it["location"].toString())
+                            postPatientData(requireContext(), it["name"].toString(),it["contact"].toString(), it["bloodGroup"].toString(), it["location"].toString())
                         } ?: run {
                             Toast.makeText(requireContext(), "User data is null", Toast.LENGTH_SHORT).show()
                         }
@@ -114,10 +115,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun postPatientData(
-        context: Context, name: String, contact: String, location: String) {
+        context: Context, name: String,contact: String, bloodGroup  : String, location: String) {
         val donorData = hashMapOf(
             "name" to name,
             "contact" to contact,
+            "bloodGroup" to bloodGroup,
             "location" to location
         )
 

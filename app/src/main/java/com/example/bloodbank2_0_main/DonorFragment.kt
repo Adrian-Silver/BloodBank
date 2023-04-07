@@ -55,9 +55,10 @@ class DonorFragment : Fragment() {
                 for (document in documents) {
                     val name = document.getString("name")
                     val contact = document.getString("contact")
+                    val bloodType = document.getString("bloodGroup")
                     val location = document.getString("location")
-                    if (name != null && contact != null && location != null) {
-                        val donor = Donor(name, contact, location)
+                    if (name != null && contact!= null && bloodType != null && location != null) {
+                        val donor = Donor(name, contact, bloodType, location)
                         donors.add(donor)
                     }
                 }
@@ -81,9 +82,11 @@ class DonorFragment : Fragment() {
 data class Donor(
     val name: String? = "",
     val contact: String? = "",
+    val bloodType: String? = "",
     val location: String? = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
@@ -110,6 +113,7 @@ data class Donor(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
         parcel.writeString(contact)
+        parcel.writeString(bloodType)
         parcel.writeString(location)
     }
 
@@ -139,8 +143,8 @@ class DonorAdapter(private val donors: MutableList<Donor>) :
 
         fun bind(donor: Donor) {
             binding.tvPersonName.text = donor.name
-//            binding.tvBloodType.text = donor.contact
             binding.tvContact.text = donor.contact
+            binding.tvBloodType.text = donor.bloodType
             binding.tvPersonLocation.text = donor.location
         }
     }

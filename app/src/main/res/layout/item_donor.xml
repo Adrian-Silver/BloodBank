@@ -30,10 +30,10 @@
             android:layout_margin="2dp" >
 
             <TextView
-                android:id="@+id/tvGender"
+                android:id="@+id/tvBloodType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/person_gender"
+                android:text="@string/person_blood_type"
                 android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_marginTop="16dp"
@@ -54,27 +54,28 @@
                 app:layout_constraintEnd_toEndOf="@+id/tvPersonName"
                 app:layout_constraintTop_toBottomOf="@+id/tvPersonName" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tvBloodType"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:text="@string/person_blood_type"-->
-<!--                android:textSize="16sp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintEnd_toEndOf="@+id/tvPersonLocation"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tvPersonLocation" />-->
-
             <TextView
                 android:id="@+id/tvContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:paddingBottom="10dp"
                 android:text="@string/person_contact"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/tvPersonLocation"
                 app:layout_constraintTop_toBottomOf="@+id/tvPersonLocation" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvContact"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:text="@string/person_contact"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/tvPersonLocation"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/tvPersonLocation" />-->
 
             <TextView
                 android:id="@+id/tvPersonName"

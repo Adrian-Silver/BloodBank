@@ -96,9 +96,9 @@ class ProfileFragment : Fragment() {
                 userName.text = userData["name"] as String
                 userAge.text = userData["age"] as String
                 userGender.text = userData["gender"] as String
-                userPhoneNo.text = userData["phoneNumber"] as String
+                userPhoneNo.text = userData["contact"] as String
                 userLocation.text = userData["location"] as String
-                // userBloodG.text = userData["bloodType"] as String
+                userBloodG.text = userData["bloodGroup"] as String
             }
         }
 
